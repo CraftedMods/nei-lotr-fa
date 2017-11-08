@@ -1,0 +1,7 @@
+===Changelog for NEI LOTR FA===
+Made by 'Crafted_Mods' or 'The_Ranger_Malvegil'
+
+ #1.0.0-ALPHA:
+ + Added support for all FA-specific crafting tables
+ + Added support for the Petty-dwarven Forge
+ + Added some technical blocks of the FA Submod to the item hiding list
