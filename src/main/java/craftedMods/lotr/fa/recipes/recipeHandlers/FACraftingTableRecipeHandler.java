@@ -18,18 +18,18 @@ package craftedMods.lotr.fa.recipes.recipeHandlers;
 
 import java.util.*;
 
-import craftedMods.lotr.recipes.recipeHandlers.AbstractLOTRCraftingTableRecipeHandler;
+import craftedMods.lotr.recipes.api.recipeHandlers.AbstractMiddleEarthCraftingTableRecipeHandler;
 import craftedMods.recipes.api.RecipeHandlerCraftingHelper;
 import craftedMods.recipes.base.*;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.StatCollector;
 
-public class FACraftingTableRecipeHandler extends AbstractLOTRCraftingTableRecipeHandler {
+public class FACraftingTableRecipeHandler extends AbstractMiddleEarthCraftingTableRecipeHandler {
 
 	private final FACraftingTableRecipeHandlerCraftingHelper craftingHelper;
 
-	public static final String UNLOCALIZED_NAME_PREFIX = "faCrafting.";
+	public static final String UNLOCALIZED_NAME_PREFIX = "lotr.fa.middleEarthCrafting";
 
 	public FACraftingTableRecipeHandler(String unlocalizedName, Class<? extends GuiContainer> guiClass, Collection<IRecipe> recipes) {
 		super(UNLOCALIZED_NAME_PREFIX + unlocalizedName, recipes);

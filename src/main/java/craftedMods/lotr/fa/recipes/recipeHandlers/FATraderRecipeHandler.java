@@ -16,25 +16,13 @@
  ******************************************************************************/
 package craftedMods.lotr.fa.recipes.recipeHandlers;
 
-import craftedMods.lotr.recipes.recipeHandlers.AlloyForgeRecipeHandler.AlloyForgeAccess;
-import net.minecraft.item.ItemStack;
-import valiec.lotrfa.LOTRTileEntityRedDwarvenForge;
+import craftedMods.lotr.recipes.api.recipeHandlers.AbstractTraderRecipeHandler;
+import lotr.common.entity.npc.LOTRTradeEntries;
 
-public class RedDwarvenAlloyForgeAccess extends LOTRTileEntityRedDwarvenForge implements AlloyForgeAccess {
+public class FATraderRecipeHandler extends AbstractTraderRecipeHandler {
 
-	@Override
-	public String getName() {
-		return super.getForgeName();
-	}
-
-	@Override
-	public ItemStack getAlloyResult(ItemStack ingredient, ItemStack alloy) {
-		return super.getAlloySmeltingResult(ingredient, alloy);
-	}
-
-	@Override
-	public ItemStack getSmeltingResult(ItemStack itemstack) {
-		return super.getSmeltingResult(itemstack);
+	public FATraderRecipeHandler(String unlocalizedName, String faction, LOTRTradeEntries itemsBought, LOTRTradeEntries itemsSold) {
+		super("lotr.fa.trader.", unlocalizedName, faction, itemsBought, itemsSold);
 	}
 
 }

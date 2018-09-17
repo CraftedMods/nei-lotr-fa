@@ -36,8 +36,8 @@ public class FAItemHidingHandler implements ItemHidingHandler {
 		this.hideItemMeta(LOTRFA.slabSingle);
 		this.hideItemMeta(LOTRFA.gondSlabSingle);
 
-		this.hideItemMeta(LOTRFA.slabDouble);
-		this.hideItemMeta(LOTRFA.gondSlabDouble);
+		this.hideItemAll(LOTRFA.slabDouble);
+		this.hideItemAll(LOTRFA.gondSlabDouble);
 
 		return FAItemHidingHandler.hiddenStacks;
 	}
@@ -55,13 +55,13 @@ public class FAItemHidingHandler implements ItemHidingHandler {
 	// this.hideItemMeta(new ItemStack(item));
 	// }
 
-	// private void hideItemAll(ItemStack stack) {
-	// FAItemHidingHandler.hiddenStacks.add(new ItemStack(stack.getItem(), 1, 32767));
-	// }
+	private void hideItemAll(ItemStack stack) {
+		FAItemHidingHandler.hiddenStacks.add(new ItemStack(stack.getItem(), 1, 32767));
+	}
 
-	// private void hideItemAll(Block block) {
-	// this.hideItemAll(new ItemStack(block));
-	// }
+	private void hideItemAll(Block block) {
+		this.hideItemAll(new ItemStack(block));
+	}
 
 	// private void hideItemAll(Item item) {
 	// this.hideItemAll(new ItemStack(item));
