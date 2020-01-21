@@ -1,14 +1,10 @@
 ===Changelog for NEI LOTR FA===
 Made by 'Crafted_Mods' or 'The_Ranger_Malvegil'
 
- #1.1.0-ALPHA:
- + Added support for all FA-specific traders
- + Updated to LOTR FA v34
- + Updated to NEI LOTR 1.0.0-ALPHA
- + Updated to neiRecipeHandlers-2.0.2-ALPHA
- 
- * Recategorized the recipe handlers in the configuration file
- * Added some missing technical blocks to the item hiding list
+ #1.0.0-BETA:
+ + Updated to lotrfa-nightly-2020-01-19.jar
+ + Updated to NEI LOTR 2.0.0-ALPHA
+ + Updated to neiRecipeHandlers-1.0.2-BETA
 
  #1.0.0-ALPHA:
  + Added support for all FA-specific crafting tables

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (C) 2018 CraftedMods (see https://github.com/CraftedMods)
+ * Copyright (C) 2020 CraftedMods (see https://github.com/CraftedMods)
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,106 +19,137 @@ package craftedMods.lotr.fa.recipes;
 import java.util.*;
 
 import craftedMods.lotr.fa.recipes.recipeHandlers.*;
+import craftedMods.lotr.recipes.api.utils.LOTRRecipeHandlerUtils;
 import craftedMods.recipes.api.*;
+import eoa.lotrfa.common.FARecipes;
+import eoa.lotrfa.common.block.table.*;
+import eoa.lotrfa.common.entity.LOTRFATrades;
+import eoa.lotrfa.common.entity.npc.*;
 import lotr.common.entity.npc.*;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.EntityList;
 import net.minecraft.item.crafting.IRecipe;
-import valiec.lotrfa.FARecipes;
-import valiec.lotrfa.entities.*;
 
 @RegisteredHandler
 public class IntegratedRecipeHandlerFactory implements RecipeHandlerFactory {
 
+	private static final String FACTION_ANGBAND = "angband";
 	private static final String FACTION_BELEGOST = "belegost";
 	private static final String FACTION_BOR = "bor";
 	private static final String FACTION_BRETHIL = "brethil";
-	private static final String FACTION_DOR_DAEDELOTH = "dor_daedeloth";
-	private static final String FACTION_DOR_LOMIN = "dor_lomin";
 	private static final String FACTION_DORIATH = "doriath";
+	private static final String FACTION_ANFAUGLITH = "anfauglith";
+	private static final String FACTION_DOR_NA_DAERACHAS = "dorNaDaerachas";
+	private static final String FACTION_DOR_LOMIN = "dorLomin";
+	private static final String FACTION_FALATHRIM = "falathrim";
+	private static final String FACTION_FEANORIAN = "feanorian";
 	private static final String FACTION_GONDOLIN = "gondolin";
-	private static final String FACTION_GULDAR = "guldar";
 	private static final String FACTION_HITHLUM = "hithlum";
-	private static final String FACTION_LADROS = "ladros";
-	private static final String FACTION_LAIQUENDIN = "laiquendin";
+	private static final String FACTION_LAEGRIM = "laegrim";
 	private static final String FACTION_NARGOTHROND = "nargothrond";
 	private static final String FACTION_NOGROD = "nogrod";
-	private static final String FACTION_RED_DWARF = "red_dwarf";
-	private static final String FACTION_TORMENTED_ELF = "tormented_elf";
+	private static final String FACTION_PETTY_DWARF = "pettyDwarf";
+	private static final String FACTION_TOL_IN_GAURHOTH = "tolInGaurhoth";
+	private static final String FACTION_TORMENTED_ELF = "tormentedElf";
 	private static final String FACTION_ULFANG = "ulfang";
 
 	private static final Set<RecipeHandler<?>> recipeHandlers = new HashSet<>();
 
 	static {
 		// FA crafting tables
-		IntegratedRecipeHandlerFactory.registerFACTHandler("ladros", FARecipes.LadrosGui.class, FARecipes.ladrosRecipes);
-		IntegratedRecipeHandlerFactory.registerFACTHandler("dor_lomin", FARecipes.DorLominGui.class, FARecipes.dorLominRecipes);
-		IntegratedRecipeHandlerFactory.registerFACTHandler("brethil", FARecipes.BrethilGui.class, FARecipes.brethilRecipes);
-		IntegratedRecipeHandlerFactory.registerFACTHandler("falas", FARecipes.FalasGui.class, FARecipes.falasRecipes);
-		IntegratedRecipeHandlerFactory.registerFACTHandler("nargothrond", FARecipes.NargothrondGui.class, FARecipes.nargothrondRecipes);
-		IntegratedRecipeHandlerFactory.registerFACTHandler("feanorean", FARecipes.FeanoreanGui.class, FARecipes.feanoreanRecipes);
-		IntegratedRecipeHandlerFactory.registerFACTHandler("valinor", FARecipes.ValinorGui.class, FARecipes.valinorRecipes);
-		IntegratedRecipeHandlerFactory.registerFACTHandler("red_dwarf", FARecipes.RedDwarvenGui.class, FARecipes.redDwarvenRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_ANGBAND, LOTRBlockTableAngband.Gui.class, FARecipes.angbandRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_BRETHIL, LOTRBlockTableBrethil.Gui.class, FARecipes.brethilRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_DOR_NA_DAERACHAS, LOTRBlockTableDorNaDaerachas.Gui.class, FARecipes.dorNaDaerachasRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_DORIATH, LOTRBlockTableDoriath.Gui.class, FARecipes.doriathRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler("dor_lomin", LOTRBlockTableDorLomin.Gui.class, FARecipes.dorLominRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler("falas", LOTRBlockTableFalathrim.Gui.class, FARecipes.falathrimRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_FEANORIAN, LOTRBlockTableFeanorian.Gui.class, FARecipes.feanorianRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_GONDOLIN, LOTRBlockTableGondolin.Gui.class, FARecipes.gondolinRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_HITHLUM, LOTRBlockTableHithlum.Gui.class, FARecipes.hithlumRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler("houseBor", LOTRBlockTableHouseBor.Gui.class, FARecipes.houseBorRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler("houseUlfang", LOTRBlockTableHouseUlfang.Gui.class, FARecipes.houseUlfangRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_LAEGRIM, LOTRBlockTableLaegrim.Gui.class, FARecipes.laegrimRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_NARGOTHROND, LOTRBlockTableNargothrond.Gui.class, FARecipes.nargothrondRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_PETTY_DWARF, LOTRBlockTablePettyDwarven.Gui.class, FARecipes.pettyDwarvenRecipes);
+		IntegratedRecipeHandlerFactory.registerFACTHandler(FACTION_TOL_IN_GAURHOTH, LOTRBlockTolInGaurhothTable.Gui.class, FARecipes.tolInGaurhothRecipes);
 
 		// FA traders
+		registerTraderHandler(LOTREntityAngbandTrader.class, FACTION_ANGBAND, LOTRFATrades.angband_trader_sell, LOTRFATrades.angband_trader_buy);
 		registerTraderHandler(LOTREntityBelegostGoldsmith.class, FACTION_BELEGOST, LOTRFATrades.belegost_goldsmith_sell, LOTRFATrades.belegost_goldsmith_buy);
 		registerTraderHandler(LOTREntityBorBartender.class, FACTION_BOR, LOTRFATrades.bor_bartender_sell, LOTRFATrades.bor_bartender_buy);
 		registerTraderHandler(LOTREntityBorFarmer.class, FACTION_BOR, LOTRFATrades.bor_farmer_sell, LOTRFATrades.bor_farmer_buy);
 		registerTraderHandler(LOTREntityBorGreengrocer.class, FACTION_BOR, LOTRFATrades.bor_greengrocer_sell, LOTRFATrades.bor_greengrocer_buy);
+		registerTraderHandler(LOTREntityBorBlacksmith.class, FACTION_BOR, LOTRFATrades.bor_smith_sell, LOTRFATrades.bor_smith_buy);
+		registerTraderHandler(LOTREntityBorBaker.class, FACTION_BOR, LOTRTradeEntries.DALE_BAKER_SELL, LOTRTradeEntries.DALE_BAKER_BUY);
 		registerTraderHandler(LOTREntityBrethilButcher.class, FACTION_BRETHIL, LOTRFATrades.brethil_butcher_sell, LOTRFATrades.brethil_butcher_buy);
 		registerTraderHandler(LOTREntityBrethilLumberman.class, FACTION_BRETHIL, LOTRFATrades.brethil_lumberman_sell, LOTRFATrades.brethil_lumberman_buy);
 		registerTraderHandler(LOTREntityBrethilSmith.class, FACTION_BRETHIL, LOTRFATrades.brethil_smith_sell, LOTRFATrades.brethil_smith_buy);
-		registerTraderHandler(LOTREntityDorDaedelothHuntsman.class, FACTION_DOR_DAEDELOTH, LOTRFATrades.dor_daedeloth_huntsman_sell,
-				LOTRFATrades.dor_daedeloth_huntsman_buy);
-		registerTraderHandler(LOTREntityDorDaedelothScavenger.class, FACTION_DOR_DAEDELOTH, LOTRFATrades.dor_daedeloth_scavenger_sell,
-				LOTRFATrades.dor_daedeloth_scavenger_buy);
-		registerTraderHandler(LOTREntityDorLominBrewer.class, FACTION_DOR_LOMIN, LOTRFATrades.dor_lomin_brewer_sell, LOTRFATrades.dor_lomin_brewer_buy);
-		registerTraderHandler(LOTREntityDorLominSmith.class, FACTION_DOR_LOMIN, LOTRFATrades.dor_lomin_smith_sell, LOTRFATrades.dor_lomin_smith_buy);
 		registerTraderHandler(LOTREntityDoriathBaker.class, FACTION_DORIATH, LOTRFATrades.doriath_baker_sell, LOTRFATrades.doriath_baker_buy);
 		registerTraderHandler(LOTREntityDoriathHuntsman.class, FACTION_DORIATH, LOTRFATrades.doriath_huntsman_sell, LOTRFATrades.doriath_huntsman_buy);
 		registerTraderHandler(LOTREntityDoriathLumberman.class, FACTION_DORIATH, LOTRFATrades.doriath_lumberman_sell, LOTRFATrades.doriath_lumberman_buy);
-		registerTraderHandler(LOTREntityFeanoreanSmith.class, "feanorean", LOTRFATrades.feanorean_smith_sell, LOTRFATrades.feanorean_smith_buy);
-		registerTraderHandler(LOTREntityFeanorianStablemaster.class, "feanorian", LOTRFATrades.feanorian_stablemaster_sell,
+		registerTraderHandler(LOTREntityDoriathSmith.class, FACTION_DORIATH, LOTRFATrades.doriath_smith_sell, LOTRFATrades.doriath_smith_buy);
+		registerTraderHandler(LOTREntityAnfauglithHuntsman.class, FACTION_ANFAUGLITH, LOTRFATrades.anfauglith_huntsman_sell,
+				LOTRFATrades.anfauglith_huntsman_buy);
+		registerTraderHandler(LOTREntityAnfauglithScavenger.class, FACTION_ANFAUGLITH, LOTRFATrades.anfauglith_scavenger_sell,
+				LOTRFATrades.anfauglith_scavenger_buy);
+		registerTraderHandler(LOTREntityAnfauglithTrader.class, FACTION_ANFAUGLITH, LOTRFATrades.anfauglith_trader_sell, LOTRFATrades.anfauglith_trader_buy);
+
+		registerTraderHandler(LOTREntityDorNaDaerachasTrader.class, FACTION_DOR_NA_DAERACHAS, LOTRFATrades.dor_na_daerachas_trader_sell,
+				LOTRFATrades.dor_na_daerachas_trader_buy);
+		registerTraderHandler(LOTREntityDorLominBrewer.class, FACTION_DOR_LOMIN, LOTRFATrades.dor_lomin_brewer_sell, LOTRFATrades.dor_lomin_brewer_buy);
+		registerTraderHandler(LOTREntityDorLominFarmer.class, FACTION_DOR_LOMIN, LOTRFATrades.dor_lomin_farmer_sell, LOTRFATrades.dor_lomin_farmer_buy);
+		registerTraderHandler(LOTREntityDorLominSmith.class, FACTION_DOR_LOMIN, LOTRFATrades.dor_lomin_smith_sell, LOTRFATrades.dor_lomin_smith_buy);
+		registerTraderHandler(LOTREntityDorLominBartender.class, FACTION_DOR_LOMIN, LOTRTradeEntries.GONDOR_BARTENDER_SELL,
+				LOTRTradeEntries.GONDOR_BARTENDER_BUY);
+		registerTraderHandler(LOTREntityFalathrimSmith.class, FACTION_FALATHRIM, LOTRFATrades.falathrim_smith_sell, LOTRFATrades.falathrim_smith_buy);
+		registerTraderHandler(LOTREntityFalathrimLumberman.class, FACTION_FALATHRIM, LOTRFATrades.falathrim_lumberman_sell,
+				LOTRFATrades.falathrim_lumberman_buy);
+		registerTraderHandler(LOTREntityFalathrimFishmonger.class, FACTION_FALATHRIM, LOTRTradeEntries.GONDOR_FISHMONGER_SELL,
+				LOTRTradeEntries.GONDOR_FISHMONGER_BUY);
+		registerTraderHandler(LOTREntityFeanorianSmith.class, FACTION_FEANORIAN, LOTRFATrades.feanorian_smith_sell, LOTRFATrades.feanorian_smith_buy);
+		registerTraderHandler(LOTREntityFeanorianStablemaster.class, FACTION_FEANORIAN, LOTRFATrades.feanorian_stablemaster_sell,
 				LOTRFATrades.feanorian_stablemaster_buy);
 		registerTraderHandler(LOTREntityGondolinFlorist.class, FACTION_GONDOLIN, LOTRFATrades.gondolin_florist_sell, LOTRFATrades.gondolin_florist_buy);
 		registerTraderHandler(LOTREntityGondolinSmith.class, FACTION_GONDOLIN, LOTRFATrades.gondolin_smith_sell, LOTRFATrades.gondolin_smith_buy);
 		registerTraderHandler(LOTREntityGondolinStonemason.class, FACTION_GONDOLIN, LOTRFATrades.gondolin_stonemason_sell,
 				LOTRFATrades.gondolin_stonemason_buy);
-		registerTraderHandler(LOTREntityGuldarLumberman.class, FACTION_GULDAR, LOTRFATrades.guldar_lumberman_sell, LOTRFATrades.guldar_lumberman_buy);
 		registerTraderHandler(LOTREntityHithlumFlorist.class, FACTION_HITHLUM, LOTRFATrades.hithlum_florist_sell, LOTRFATrades.hithlum_florist_buy);
 		registerTraderHandler(LOTREntityHithlumGreengrocer.class, FACTION_HITHLUM, LOTRFATrades.hithlum_greengrocer_sell, LOTRFATrades.hithlum_greengrocer_buy);
 		registerTraderHandler(LOTREntityHithlumVinekeeper.class, FACTION_HITHLUM, LOTRFATrades.hithlum_vinekeeper_sell, LOTRFATrades.hithlum_vinekeeper_buy);
 		registerTraderHandler(LOTREntityHithlumVintnerElf.class, FACTION_HITHLUM, LOTRTradeEntries.DORWINION_VINTNER_SELL,
 				LOTRFATrades.hithlum_vintner_elf_buy);
-		registerTraderHandler(LOTREntityLadrosBrewer.class, FACTION_LADROS, LOTRFATrades.ladros_brewer_sell, LOTRFATrades.ladros_brewer_buy);
-		registerTraderHandler(LOTREntityLadrosFarmer.class, FACTION_LADROS, LOTRFATrades.ladros_farmer_sell, LOTRFATrades.ladros_farmer_buy);
-		registerTraderHandler(LOTREntityLadrosSmith.class, FACTION_LADROS, LOTRFATrades.ladros_smith_sell, LOTRFATrades.ladros_smith_buy);
-		registerTraderHandler(LOTREntityLadrosVinekeeper.class, FACTION_LADROS, LOTRFATrades.ladros_vinekeeper_sell, LOTRFATrades.ladros_vinekeeper_buy);
-		registerTraderHandler(LOTREntityLaiquendinFlorist.class, FACTION_LAIQUENDIN, LOTRFATrades.laiquendin_florist_sell, LOTRFATrades.laiquendin_florist_buy);
-		registerTraderHandler(LOTREntityLaiquendinHuntsman.class, FACTION_LAIQUENDIN, LOTRFATrades.laiquendin_huntsman_sell,
-				LOTRFATrades.laiquendin_huntsman_buy);
-		registerTraderHandler(LOTREntityLaiquendinLumberman.class, FACTION_LAIQUENDIN, LOTRFATrades.laiquendin_lumberman_sell,
-				LOTRFATrades.laiquendin_lumberman_buy);
+		registerTraderHandler(LOTREntityHithlumSmith.class, FACTION_HITHLUM, LOTRFATrades.hithlum_smith_sell, LOTRFATrades.hithlum_smith_buy);
+		registerTraderHandler(LOTREntityLaegrimFlorist.class, FACTION_LAEGRIM, LOTRFATrades.laegrim_florist_sell, LOTRFATrades.laegrim_florist_buy);
+		registerTraderHandler(LOTREntityLaegrimHuntsman.class, FACTION_LAEGRIM, LOTRFATrades.laegrim_huntsman_sell, LOTRFATrades.laegrim_huntsman_buy);
+		registerTraderHandler(LOTREntityLaegrimLumberman.class, FACTION_LAEGRIM, LOTRFATrades.laegrim_lumberman_sell, LOTRFATrades.laegrim_lumberman_buy);
+		registerTraderHandler(LOTREntityLaegrimSmith.class, FACTION_LAEGRIM, LOTRTradeEntries.WOOD_ELF_SMITH_SELL, LOTRTradeEntries.WOOD_ELF_SMITH_BUY);
 		registerTraderHandler(LOTREntityNargothrondGoldsmith.class, FACTION_NARGOTHROND, LOTRFATrades.nargothrond_goldsmith_sell,
 				LOTRFATrades.nargothrond_goldsmith_buy);
 		registerTraderHandler(LOTREntityNargothrondStonemason.class, FACTION_NARGOTHROND, LOTRFATrades.nargothrond_stonemason_sell,
 				LOTRFATrades.nargothrond_stonemason_buy);
+		registerTraderHandler(LOTREntityNargothrondTrader.class, FACTION_NARGOTHROND, LOTRTradeEntries.RIVENDELL_TRADER_SELL,
+				LOTRTradeEntries.RIVENDELL_TRADER_BUY);
+		registerTraderHandler(LOTREntityNargothrondSmith.class, FACTION_NARGOTHROND, LOTRFATrades.nargothrond_smith_sell, LOTRFATrades.nargothrond_smith_buy);
 		registerTraderHandler(LOTREntityNogrodStonemason.class, FACTION_NOGROD, LOTRFATrades.nogrod_stonemason_sell, LOTRFATrades.nogrod_stonemason_buy);
-		registerTraderHandler(LOTREntityRedDwarfSmith.class, FACTION_RED_DWARF, LOTRFATrades.red_dwarf_smith_sell, LOTRFATrades.red_dwarf_smith_buy);
-		registerTraderHandler(LOTREntityTormentedElfSmith.class, FACTION_TORMENTED_ELF, LOTRFATrades.tormented_elf_smith_sell,
+		registerTraderHandler(LOTREntityPettyDwarfSmith.class, FACTION_PETTY_DWARF, LOTRFATrades.petty_dwarf_smith_sell, LOTRFATrades.petty_dwarf_smith_buy);
+		registerTraderHandler(LOTREntityTolInGaurhothTrader.class, FACTION_TOL_IN_GAURHOTH, LOTRFATrades.tol_in_gaurhoth_trader_sell,
+				LOTRFATrades.tol_in_gaurhoth_trader_buy);
+		registerTraderHandler(LOTREntityTolInGaurhothLumberman.class, FACTION_TOL_IN_GAURHOTH, LOTRFATrades.tol_in_gaurhoth_lumberman_sell,
+				LOTRFATrades.tol_in_gaurhoth_lumberman_buy);
+		registerTraderHandler(LOTRFAEntityTormentedElfSmith.class, FACTION_TORMENTED_ELF, LOTRFATrades.tormented_elf_smith_sell,
 				LOTRFATrades.tormented_elf_smith_buy);
-		registerTraderHandler(LOTREntityTormentedElfStonemason.class, FACTION_TORMENTED_ELF, LOTRFATrades.tormented_elf_stonemason_sell,
+		registerTraderHandler(LOTRFAEntityTormentedElfStonemason.class, FACTION_TORMENTED_ELF, LOTRFATrades.tormented_elf_stonemason_sell,
 				LOTRFATrades.tormented_elf_stonemason_buy);
 		registerTraderHandler(LOTREntityUlfangBrewer.class, FACTION_ULFANG, LOTRFATrades.ulfang_brewer_sell, LOTRFATrades.ulfang_brewer_buy);
 		registerTraderHandler(LOTREntityUlfangButcher.class, FACTION_ULFANG, LOTRFATrades.ulfang_butcher_sell, LOTRFATrades.ulfang_butcher_buy);
-		registerTraderHandler(LOTREntityUlfangFarmer.class, FACTION_ULFANG, LOTRFATrades.ulfang_farmer_sell, LOTRFATrades.ulfang_farmer_buy);
 		registerTraderHandler(LOTREntityUlfangHuntsman.class, FACTION_ULFANG, LOTRFATrades.ulfang_huntsman_sell, LOTRFATrades.ulfang_huntsman_buy);
 		registerTraderHandler(LOTREntityUlfangLumberman.class, FACTION_ULFANG, LOTRFATrades.ulfang_lumberman_sell, LOTRFATrades.ulfang_lumberman_buy);
 		registerTraderHandler(LOTREntityUlfangSmith.class, FACTION_ULFANG, LOTRFATrades.ulfang_smith_sell, LOTRFATrades.ulfang_smith_buy);
+		registerTraderHandler(LOTREntityUlfangBartender.class, FACTION_ULFANG, LOTRTradeEntries.DUNLENDING_BARTENDER_SELL,
+				LOTRTradeEntries.DUNLENDING_BARTENDER_BUY);
 
 		// FA alloy forges
 		IntegratedRecipeHandlerFactory.recipeHandlers
-				.add(new FAAlloyForgeRecipeHandler("fa.redDwarven", new FAAlloyForgeRecipeHandler.RedDwarvenAlloyForgeAccess()));
+				.add(new FAAlloyForgeRecipeHandler("pettyDwarven", new FAAlloyForgeRecipeHandler.PettyDwarvenAlloyForgeAccess()));
 	}
 
 	private static void registerFACTHandler(String unlocalizedName, Class<? extends GuiContainer> guiClass, Collection<IRecipe> recipes) {
@@ -127,8 +158,8 @@ public class IntegratedRecipeHandlerFactory implements RecipeHandlerFactory {
 
 	private static void registerTraderHandler(Class<? extends LOTRTradeable> entityClass, String faction, LOTRTradeEntries itemsBought,
 			LOTRTradeEntries itemsSold) {
-		IntegratedRecipeHandlerFactory.recipeHandlers.add(
-				new FATraderRecipeHandler(EntityList.classToStringMapping.get(entityClass).toString().replace("lotr.", ""), faction, itemsBought, itemsSold));
+		IntegratedRecipeHandlerFactory.recipeHandlers.add(new FATraderRecipeHandler(
+				LOTRRecipeHandlerUtils.getUnlocalizedEntityName(entityClass).replaceAll("lotrfa.", ""), faction, itemsBought, itemsSold));
 	}
 
 	@Override

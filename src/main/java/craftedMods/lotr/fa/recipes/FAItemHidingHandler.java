@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (C) 2018 CraftedMods (see https://github.com/CraftedMods)
+ * Copyright (C) 2020 CraftedMods (see https://github.com/CraftedMods)
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,9 +19,9 @@ package craftedMods.lotr.fa.recipes;
 import java.util.*;
 
 import craftedMods.recipes.api.*;
+import eoa.lotrfa.common.block.LOTRFABlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import valiec.lotrfa.LOTRFA;
 
 @RegisteredHandler
 public class FAItemHidingHandler implements ItemHidingHandler {
@@ -33,11 +33,20 @@ public class FAItemHidingHandler implements ItemHidingHandler {
 		FAItemHidingHandler.hiddenStacks.clear();
 
 		// Slabs
-		this.hideItemMeta(LOTRFA.slabSingle);
-		this.hideItemMeta(LOTRFA.gondSlabSingle);
+		hideItemMeta(LOTRFABlocks.slabSingle);
+		hideItemMeta(LOTRFABlocks.slabSingle2);
+		hideItemMeta(LOTRFABlocks.slabSingle3);
+		hideItemMeta(LOTRFABlocks.slabSingle4);
+		hideItemMeta(LOTRFABlocks.slabSingleSarnlum);
+		hideItemMeta(LOTRFABlocks.slabSingleWood);
 
-		this.hideItemAll(LOTRFA.slabDouble);
-		this.hideItemAll(LOTRFA.gondSlabDouble);
+		// Double slabs
+		hideItemAll(LOTRFABlocks.slabDouble);
+		hideItemAll(LOTRFABlocks.slabDouble2);
+		hideItemAll(LOTRFABlocks.slabDouble3);
+		hideItemAll(LOTRFABlocks.slabDouble4);
+		hideItemAll(LOTRFABlocks.slabDoubleSarnlum);
+		hideItemAll(LOTRFABlocks.slabDoubleWood);
 
 		return FAItemHidingHandler.hiddenStacks;
 	}

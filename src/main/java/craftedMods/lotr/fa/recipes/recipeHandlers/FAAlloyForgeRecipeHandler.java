@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (C) 2018 CraftedMods (see https://github.com/CraftedMods)
+ * Copyright (C) 2020 CraftedMods (see https://github.com/CraftedMods)
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,16 +17,16 @@
 package craftedMods.lotr.fa.recipes.recipeHandlers;
 
 import craftedMods.lotr.recipes.api.recipeHandlers.AbstractAlloyForgeRecipeHandler;
+import eoa.lotrfa.common.tile.LOTRTileEntityPettyDwarvenForge;
 import net.minecraft.item.ItemStack;
-import valiec.lotrfa.LOTRTileEntityRedDwarvenForge;
 
 public class FAAlloyForgeRecipeHandler extends AbstractAlloyForgeRecipeHandler {
 
 	public FAAlloyForgeRecipeHandler(String unlocalizedName, AlloyForgeAccess alloyForgeDummy) {
-		super("lotr.fa.alloyForge" + unlocalizedName, alloyForgeDummy);
+		super("lotr-fa.alloyForge." + unlocalizedName, alloyForgeDummy);
 	}
 
-	public static class RedDwarvenAlloyForgeAccess extends LOTRTileEntityRedDwarvenForge implements AlloyForgeAccess {
+	public static class PettyDwarvenAlloyForgeAccess extends LOTRTileEntityPettyDwarvenForge implements AlloyForgeAccess {
 
 		@Override
 		public String getName() {

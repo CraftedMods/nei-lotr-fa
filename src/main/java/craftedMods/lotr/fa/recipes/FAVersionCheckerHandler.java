@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (C) 2018 CraftedMods (see https://github.com/CraftedMods)
+ * Copyright (C) 2020 CraftedMods (see https://github.com/CraftedMods)
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ import craftedMods.utils.*;
 @RegisteredHandler
 public class FAVersionCheckerHandler implements VersionCheckerHandler {
 
-	public static final SemanticVersion NEI_LOTR_FA_VERSION = new SemanticVersion(EnumVersionState.ALPHA, 1, 1, 0);
+	public static final SemanticVersion NEI_LOTR_FA_VERSION = new SemanticVersion(EnumVersionState.BETA, 1, 0, 0);
 
 	@Override
 	public SemanticVersion getCurrentVersion() {
