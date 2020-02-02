@@ -39,6 +39,8 @@ public class FAItemHidingHandler implements ItemHidingHandler {
 		hideItemMeta(LOTRFABlocks.slabSingle4);
 		hideItemMeta(LOTRFABlocks.slabSingleSarnlum);
 		hideItemMeta(LOTRFABlocks.slabSingleWood);
+		hideItemMeta(LOTRFABlocks.slabSingleWool);
+		hideItemMeta(LOTRFABlocks.slabSingleWool2);
 
 		// Double slabs
 		hideItemAll(LOTRFABlocks.slabDouble);
@@ -47,6 +49,8 @@ public class FAItemHidingHandler implements ItemHidingHandler {
 		hideItemAll(LOTRFABlocks.slabDouble4);
 		hideItemAll(LOTRFABlocks.slabDoubleSarnlum);
 		hideItemAll(LOTRFABlocks.slabDoubleWood);
+		hideItemMeta(LOTRFABlocks.slabDoubleWool);
+		hideItemMeta(LOTRFABlocks.slabDoubleWool2);
 
 		return FAItemHidingHandler.hiddenStacks;
 	}

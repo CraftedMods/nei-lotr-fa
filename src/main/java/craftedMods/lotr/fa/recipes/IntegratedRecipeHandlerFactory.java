@@ -121,7 +121,7 @@ public class IntegratedRecipeHandlerFactory implements RecipeHandlerFactory {
 		registerTraderHandler(LOTREntityLaegrimFlorist.class, FACTION_LAEGRIM, LOTRFATrades.laegrim_florist_sell, LOTRFATrades.laegrim_florist_buy);
 		registerTraderHandler(LOTREntityLaegrimHuntsman.class, FACTION_LAEGRIM, LOTRFATrades.laegrim_huntsman_sell, LOTRFATrades.laegrim_huntsman_buy);
 		registerTraderHandler(LOTREntityLaegrimLumberman.class, FACTION_LAEGRIM, LOTRFATrades.laegrim_lumberman_sell, LOTRFATrades.laegrim_lumberman_buy);
-		registerTraderHandler(LOTREntityLaegrimSmith.class, FACTION_LAEGRIM, LOTRTradeEntries.WOOD_ELF_SMITH_SELL, LOTRTradeEntries.WOOD_ELF_SMITH_BUY);
+		registerTraderHandler(LOTREntityLaegrimSmith.class, FACTION_LAEGRIM, LOTRFATrades.laegrim_smith_sell, LOTRFATrades.laegrim_smith_buy);
 		registerTraderHandler(LOTREntityNargothrondGoldsmith.class, FACTION_NARGOTHROND, LOTRFATrades.nargothrond_goldsmith_sell,
 				LOTRFATrades.nargothrond_goldsmith_buy);
 		registerTraderHandler(LOTREntityNargothrondStonemason.class, FACTION_NARGOTHROND, LOTRFATrades.nargothrond_stonemason_sell,
