@@ -1,8 +1,11 @@
 ===Changelog for NEI LOTR FA===
 Made by 'Crafted_Mods' or 'The_Ranger_Malvegil'
 
+ # 1.2.0-BETA:
+ + Updated to lotrfa-pre-nightly-2020-02-13-deobf.jar
+ 
  # 1.1.0-BETA:
- + Updated to Updated to lotrfa-nightly-2020-02-02.jar
+ + Updated to lotrfa-nightly-2020-02-02.jar
 
  #1.0.0-BETA:
  + Updated to lotrfa-nightly-2020-01-19.jar
