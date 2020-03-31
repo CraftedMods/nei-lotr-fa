@@ -35,15 +35,14 @@ public class FATraderRecipeHandler extends AbstractTraderRecipeHandler {
 
 	@Override
 	public String getDisplayName() {
-		return StatCollector
-				.translateToLocal("entity.lotrfa." + this.traderName + ".name");
+		return StatCollector.translateToLocal("entity.lotrfa." + this.traderName + ".name");
 	}
 
 	@Override
 	public RecipeHandlerRecipeViewer<TraderRecipe> getRecipeViewer() {
-		return recipeViewer;
+		return this.recipeViewer;
 	}
-	
+
 	@Override
 	public int getDefaultOrder() {
 		return 90000;
@@ -55,11 +54,13 @@ public class FATraderRecipeHandler extends AbstractTraderRecipeHandler {
 			super(handler);
 		}
 
+		@Override
 		public boolean isGuiContainerSupported(GuiContainer container) {
 			if (container instanceof LOTRGuiTrade) {
 				LOTRGuiTrade tradeGui = (LOTRGuiTrade) container;
-				if (!((FATraderRecipeHandler)handler).traderName
-						.equals(LOTRRecipeHandlerUtils.getUnlocalizedEntityName(tradeGui.theEntity.getClass()).replaceAll("lotrfa.", ""))) { return false; }
+				if (!((FATraderRecipeHandler) this.handler).traderName
+						.equals(LOTRRecipeHandlerUtils.getUnlocalizedEntityName(tradeGui.theEntity.getClass()).replaceAll("lotrfa.", "")))
+					return false;
 			}
 			return true;
 		}

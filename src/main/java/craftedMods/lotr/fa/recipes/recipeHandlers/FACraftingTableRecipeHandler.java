@@ -29,13 +29,15 @@ public class FACraftingTableRecipeHandler extends AbstractMiddleEarthCraftingTab
 	public static final String UNLOCALIZED_NAME_PREFIX = "lotr-fa.middleEarthCrafting.";
 
 	public FACraftingTableRecipeHandler(String unlocalizedName, Class<? extends GuiContainer> guiClass, Supplier<Collection<IRecipe>> recipesGetter) {
-		super(UNLOCALIZED_NAME_PREFIX + unlocalizedName,guiClass, recipesGetter);
+		super(FACraftingTableRecipeHandler.UNLOCALIZED_NAME_PREFIX + unlocalizedName, guiClass, recipesGetter);
 	}
 
+	@Override
 	public String getDisplayName() {
-		return StatCollector.translateToLocal((String) ("container.lotr.crafting." + this.getUnlocalizedName().replace(UNLOCALIZED_NAME_PREFIX, "")));
+		return StatCollector
+				.translateToLocal("container.lotr.crafting." + this.getUnlocalizedName().replace(FACraftingTableRecipeHandler.UNLOCALIZED_NAME_PREFIX, ""));
 	}
-	
+
 	@Override
 	public int getDefaultOrder() {
 		return 1500;

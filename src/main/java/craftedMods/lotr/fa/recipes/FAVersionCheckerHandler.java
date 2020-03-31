@@ -26,7 +26,7 @@ public class FAVersionCheckerHandler implements VersionCheckerHandler {
 
 	@Override
 	public SemanticVersion getCurrentVersion() {
-		return NEI_LOTR_FA_VERSION;
+		return FAVersionCheckerHandler.NEI_LOTR_FA_VERSION;
 	}
 
 	@Override

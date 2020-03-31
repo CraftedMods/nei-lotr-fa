@@ -33,31 +33,32 @@ public class FAItemHidingHandler implements ItemHidingHandler {
 		FAItemHidingHandler.hiddenStacks.clear();
 
 		// Slabs
-		hideItemMeta(LOTRFABlocks.slabSingle);
-		hideItemMeta(LOTRFABlocks.slabSingle2);
-		hideItemMeta(LOTRFABlocks.slabSingle3);
-		hideItemMeta(LOTRFABlocks.slabSingle4);
-		hideItemMeta(LOTRFABlocks.slabSingleSarnlum);
-		hideItemMeta(LOTRFABlocks.slabSingleWood);
-		hideItemMeta(LOTRFABlocks.slabSingleWool);
-		hideItemMeta(LOTRFABlocks.slabSingleWool2);
+		this.hideItemMeta(LOTRFABlocks.slabSingle);
+		this.hideItemMeta(LOTRFABlocks.slabSingle2);
+		this.hideItemMeta(LOTRFABlocks.slabSingle3);
+		this.hideItemMeta(LOTRFABlocks.slabSingle4);
+		this.hideItemMeta(LOTRFABlocks.slabSingleSarnlum);
+		this.hideItemMeta(LOTRFABlocks.slabSingleWood);
+		this.hideItemMeta(LOTRFABlocks.slabSingleWool);
+		this.hideItemMeta(LOTRFABlocks.slabSingleWool2);
 
 		// Double slabs
-		hideItemAll(LOTRFABlocks.slabDouble);
-		hideItemAll(LOTRFABlocks.slabDouble2);
-		hideItemAll(LOTRFABlocks.slabDouble3);
-		hideItemAll(LOTRFABlocks.slabDouble4);
-		hideItemAll(LOTRFABlocks.slabDoubleSarnlum);
-		hideItemAll(LOTRFABlocks.slabDoubleWood);
-		hideItemMeta(LOTRFABlocks.slabDoubleWool);
-		hideItemMeta(LOTRFABlocks.slabDoubleWool2);
+		this.hideItemAll(LOTRFABlocks.slabDouble);
+		this.hideItemAll(LOTRFABlocks.slabDouble2);
+		this.hideItemAll(LOTRFABlocks.slabDouble3);
+		this.hideItemAll(LOTRFABlocks.slabDouble4);
+		this.hideItemAll(LOTRFABlocks.slabDoubleSarnlum);
+		this.hideItemAll(LOTRFABlocks.slabDoubleWood);
+		this.hideItemMeta(LOTRFABlocks.slabDoubleWool);
+		this.hideItemMeta(LOTRFABlocks.slabDoubleWool2);
 
 		return FAItemHidingHandler.hiddenStacks;
 	}
 
 	private void hideItemMeta(ItemStack stack) {
-		for (int i = 8; i < 16; i++)
+		for (int i = 8; i < 16; i++) {
 			FAItemHidingHandler.hiddenStacks.add(new ItemStack(stack.getItem(), 1, i));
+		}
 	}
 
 	private void hideItemMeta(Block block) {
