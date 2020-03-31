@@ -16,11 +16,10 @@
  ******************************************************************************/
 package craftedMods.lotr.fa.recipes.recipeHandlers;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.function.Supplier;
 
 import craftedMods.lotr.recipes.api.recipeHandlers.AbstractMiddleEarthCraftingTableRecipeHandler;
-import craftedMods.recipes.api.*;
-import craftedMods.recipes.base.*;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.StatCollector;
@@ -29,68 +28,17 @@ public class FACraftingTableRecipeHandler extends AbstractMiddleEarthCraftingTab
 
 	public static final String UNLOCALIZED_NAME_PREFIX = "lotr-fa.middleEarthCrafting.";
 
-	private final FACraftingTableRecipeHandlerCraftingHelper craftingHelper;
-	private final FACraftingTableRecipeHandlerRecipeViewer recipeViewer;
-
-	public FACraftingTableRecipeHandler(String unlocalizedName, Class<? extends GuiContainer> guiClass, Collection<IRecipe> recipes) {
-		super(UNLOCALIZED_NAME_PREFIX + unlocalizedName, recipes);
-		this.craftingHelper = new FACraftingTableRecipeHandlerCraftingHelper(guiClass);
-		this.recipeViewer = new FACraftingTableRecipeHandlerRecipeViewer(this, guiClass);
+	public FACraftingTableRecipeHandler(String unlocalizedName, Class<? extends GuiContainer> guiClass, Supplier<Collection<IRecipe>> recipesGetter) {
+		super(UNLOCALIZED_NAME_PREFIX + unlocalizedName,guiClass, recipesGetter);
 	}
 
 	public String getDisplayName() {
 		return StatCollector.translateToLocal((String) ("container.lotr.crafting." + this.getUnlocalizedName().replace(UNLOCALIZED_NAME_PREFIX, "")));
 	}
-
-	public RecipeHandlerCraftingHelper<AbstractRecipe> getCraftingHelper() {
-		return this.craftingHelper;
-	}
-
+	
 	@Override
-	public RecipeHandlerRecipeViewer<AbstractRecipe> getRecipeViewer() {
-		return this.recipeViewer;
-	}
-
-	private class FACraftingTableRecipeHandlerCraftingHelper extends AbstractCraftingHelper<AbstractRecipe> {
-		private final Collection<Class<? extends GuiContainer>> guiClass;
-
-		public FACraftingTableRecipeHandlerCraftingHelper(Class<? extends GuiContainer> guiClass) {
-			this.guiClass = Arrays.asList(guiClass);
-		}
-
-		public Collection<Class<? extends GuiContainer>> getSupportedGUIClasses(AbstractRecipe recipe) {
-			return this.guiClass;
-		}
-
-		public int getOffsetX(Class<? extends GuiContainer> guiClass, AbstractRecipe recipe) {
-			return 5;
-		}
-
-		public int getOffsetY(Class<? extends GuiContainer> guiClass, AbstractRecipe recipe) {
-			return 11;
-		}
-	}
-
-	private class FACraftingTableRecipeHandlerRecipeViewer extends AbstractRecipeViewer<AbstractRecipe, FACraftingTableRecipeHandler> {
-
-		private final Collection<Class<? extends GuiContainer>> supportedGuiClasses = new ArrayList<>();
-
-		public FACraftingTableRecipeHandlerRecipeViewer(FACraftingTableRecipeHandler handler, Class<? extends GuiContainer> guiClass) {
-			super(handler);
-			this.supportedGuiClasses.addAll(AbstractRecipeViewer.RECIPE_HANDLER_GUIS);
-			this.supportedGuiClasses.add(guiClass);
-		}
-
-		@Override
-		public Collection<Class<? extends GuiContainer>> getSupportedGUIClasses() {
-			return this.supportedGuiClasses;
-		}
-
-		@Override
-		public Collection<AbstractRecipe> getAllRecipes() {
-			return this.handler.getStaticRecipes();
-		}
-
+	public int getDefaultOrder() {
+		return 1500;
 	}
 
 }

@@ -26,6 +26,11 @@ public class FAAlloyForgeRecipeHandler extends AbstractAlloyForgeRecipeHandler {
 		super("lotr-fa.alloyForge." + unlocalizedName, alloyForgeDummy);
 	}
 
+	@Override
+	public int getDefaultOrder() {
+		return 2500;
+	}
+
 	public static class PettyDwarvenAlloyForgeAccess extends LOTRTileEntityPettyDwarvenForge implements AlloyForgeAccess {
 
 		@Override

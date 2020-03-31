@@ -31,19 +31,22 @@ public class FATraderRecipeHandler extends AbstractTraderRecipeHandler {
 	public FATraderRecipeHandler(String unlocalizedName, String faction, LOTRTradeEntries itemsBought, LOTRTradeEntries itemsSold) {
 		super("lotr-fa.trader.", unlocalizedName, faction, itemsBought, itemsSold);
 		this.recipeViewer = new FATraderRecipeHandlerRecipeViewer(this);
-
 	}
 
-	// TODO fix the ugly this.getUnlocalizedName().split("\\." hack with the next NEI LOTR version
 	@Override
 	public String getDisplayName() {
 		return StatCollector
-				.translateToLocal("entity.lotrfa." + this.getUnlocalizedName().split("\\.")[this.getUnlocalizedName().split("\\.").length - 1] + ".name");
+				.translateToLocal("entity.lotrfa." + this.traderName + ".name");
 	}
 
 	@Override
 	public RecipeHandlerRecipeViewer<TraderRecipe> getRecipeViewer() {
 		return recipeViewer;
+	}
+	
+	@Override
+	public int getDefaultOrder() {
+		return 90000;
 	}
 
 	public class FATraderRecipeHandlerRecipeViewer extends TraderRecipeHandlerRecipeViewer {
@@ -55,7 +58,7 @@ public class FATraderRecipeHandler extends AbstractTraderRecipeHandler {
 		public boolean isGuiContainerSupported(GuiContainer container) {
 			if (container instanceof LOTRGuiTrade) {
 				LOTRGuiTrade tradeGui = (LOTRGuiTrade) container;
-				if (!this.handler.getUnlocalizedName().split("\\.")[this.handler.getUnlocalizedName().split("\\.").length - 1]
+				if (!((FATraderRecipeHandler)handler).traderName
 						.equals(LOTRRecipeHandlerUtils.getUnlocalizedEntityName(tradeGui.theEntity.getClass()).replaceAll("lotrfa.", ""))) { return false; }
 			}
 			return true;
