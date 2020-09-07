@@ -33,37 +33,53 @@ public class FAItemHidingHandler implements ItemHidingHandler {
 		FAItemHidingHandler.hiddenStacks.clear();
 
 		// Slabs
-		this.hideItemMeta(LOTRFABlocks.slabSingle);
-		this.hideItemMeta(LOTRFABlocks.slabSingle2);
-		this.hideItemMeta(LOTRFABlocks.slabSingle3);
-		this.hideItemMeta(LOTRFABlocks.slabSingle4);
-		this.hideItemMeta(LOTRFABlocks.slabSingleSarnlum);
-		this.hideItemMeta(LOTRFABlocks.slabSingleWood);
-		this.hideItemMeta(LOTRFABlocks.slabSingleWool);
-		this.hideItemMeta(LOTRFABlocks.slabSingleWool2);
+
+		this.hideItemMeta (LOTRFABlocks.slabSingleBlackstone, 5);
+		this.hideItemMeta (LOTRFABlocks.slabSingleDirt, 1);
+		this.hideItemMeta (LOTRFABlocks.slabSingleGravel, 2);
+		this.hideItemMeta (LOTRFABlocks.slabSingleLithond, 5);
+		this.hideItemMeta (LOTRFABlocks.slabSingleLummond, 4);
+		this.hideItemMeta (LOTRFABlocks.slabSingleRockAngband, 2);
+		this.hideItemMeta(LOTRFABlocks.slabSingleWood, 8);
+		this.hideItemMeta(LOTRFABlocks.slabSingleWool, 8);
+		this.hideItemMeta(LOTRFABlocks.slabSingleWool2, 8);
 
 		// Double slabs
-		this.hideItemAll(LOTRFABlocks.slabDouble);
-		this.hideItemAll(LOTRFABlocks.slabDouble2);
-		this.hideItemAll(LOTRFABlocks.slabDouble3);
-		this.hideItemAll(LOTRFABlocks.slabDouble4);
-		this.hideItemAll(LOTRFABlocks.slabDoubleSarnlum);
+		this.hideItemAll (LOTRFABlocks.slabDoubleBlackstone);
+        this.hideItemAll (LOTRFABlocks.slabDoubleDirt);
+        this.hideItemAll (LOTRFABlocks.slabDoubleGravel);
+        this.hideItemAll (LOTRFABlocks.slabDoubleLithond);
+        this.hideItemAll (LOTRFABlocks.slabDoubleLummond);
+        this.hideItemAll (LOTRFABlocks.slabDoubleRockAngband);
 		this.hideItemAll(LOTRFABlocks.slabDoubleWood);
-		this.hideItemMeta(LOTRFABlocks.slabDoubleWool);
-		this.hideItemMeta(LOTRFABlocks.slabDoubleWool2);
+		this.hideItemAll(LOTRFABlocks.slabDoubleWool);
+		this.hideItemAll(LOTRFABlocks.slabDoubleWool2);
+		
+		//Beds
+		this.hideItemAll (LOTRFABlocks.doriathBed);
+		this.hideItemAll (LOTRFABlocks.laegrimBed);
+		this.hideItemAll (LOTRFABlocks.falathrimBed);
+		this.hideItemAll (LOTRFABlocks.feanorianBed);
+		this.hideItemAll (LOTRFABlocks.hithlumBed);
+		this.hideItemAll (LOTRFABlocks.nargothrondBed);
+		this.hideItemAll (LOTRFABlocks.gondolinBed);
 
 		return FAItemHidingHandler.hiddenStacks;
 	}
-
-	private void hideItemMeta(ItemStack stack) {
-		for (int i = 8; i < 16; i++) {
+	
+	private void hideItemMeta(ItemStack stack, int min) {
+		for (int i = min; i < 16; i++) {
 			FAItemHidingHandler.hiddenStacks.add(new ItemStack(stack.getItem(), 1, i));
 		}
 	}
 
-	private void hideItemMeta(Block block) {
-		this.hideItemMeta(new ItemStack(block));
+	private void hideItemMeta(Block block, int min) {
+		this.hideItemMeta(new ItemStack(block), min);
 	}
+	
+//	private void hideItemMeta(Block block) {
+//        this.hideItemMeta(new ItemStack(block), 8);
+//    }
 
 	// private void hideItemMeta(Item item) {
 	// this.hideItemMeta(new ItemStack(item));

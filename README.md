@@ -2,8 +2,8 @@
 The plugin adds NEI support for all devices and recipes added by the submod.
 ## Dependencies
 If you want to setup a development environment, you'll need the following dependencies:
-- [lotrfa-nightly-2020-03-23.jar](http://kpabr.com/eoa/builds/lotrfa-nightly-2020-03-23.jar)
-- [neiLotr-2.1.0-ALPHA.jar](https://www.curseforge.com/minecraft/mc-mods/nei-lotr/files)
+- [lotrfa-nightly-2020-09-06.jar](http://kpabr.com/eoa/nightly/lotrfa-nightly-2020-09-06.jar)
+- [neiLotr-1.0.0-BETA.jar](https://www.curseforge.com/minecraft/mc-mods/nei-lotr/files)
 - [neiRecipeHandlers-1.1.0-BETA.jar](https://www.curseforge.com/minecraft/mc-mods/nei-recipe-handlers/files)
 
 The plugin was created with the MinecraftForge version "1.7.10-10.13.4.1614".  
