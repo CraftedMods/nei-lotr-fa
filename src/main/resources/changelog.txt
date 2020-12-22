@@ -1,6 +1,12 @@
 ===Changelog for NEI LOTR FA===
 Made by 'Crafted_Mods' or 'The_Ranger_Malvegil'
 
+ # 1.4.1-BETA:
+ + Updated to lotrfa-2.3.0-BETA
+  + Added missing double slabs to the item hiding list
+  + Re-added support for the Nogrod stonemason and Belegost goldsmith
+ * Fixed a version checker bug
+
  # 1.4.0-BETA:
  + Updated to lotrfa-pre-nightly-2020-09-06.jar
  + Updated to neiLotr-1.0.0-BETA

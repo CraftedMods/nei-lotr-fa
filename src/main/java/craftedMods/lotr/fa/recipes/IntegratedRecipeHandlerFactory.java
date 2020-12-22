@@ -25,6 +25,7 @@ import eoa.lotrfa.common.block.table.*;
 import eoa.lotrfa.common.entity.LOTRFATrades;
 import eoa.lotrfa.common.entity.npc.anfauglith.*;
 import eoa.lotrfa.common.entity.npc.angband.LOTRFAEntityAngbandTrader;
+import eoa.lotrfa.common.entity.npc.belegost.LOTRFAEntityBelegostGoldsmith;
 import eoa.lotrfa.common.entity.npc.bor.*;
 import eoa.lotrfa.common.entity.npc.brethil.*;
 import eoa.lotrfa.common.entity.npc.doriath.*;
@@ -51,7 +52,7 @@ public class IntegratedRecipeHandlerFactory implements RecipeHandlerFactory
 {
 
     private static final String FACTION_ANGBAND = "angband";
-//    private static final String FACTION_BELEGOST = "belegost";
+    private static final String FACTION_BELEGOST = "belegost";
     private static final String FACTION_BOR = "bor";
     private static final String FACTION_BRETHIL = "brethil";
     private static final String FACTION_DORIATH = "doriath";
@@ -124,9 +125,9 @@ public class IntegratedRecipeHandlerFactory implements RecipeHandlerFactory
         IntegratedRecipeHandlerFactory.registerTraderHandler (LOTRFAEntityAngbandTrader.class,
             IntegratedRecipeHandlerFactory.FACTION_ANGBAND,
             LOTRFATrades.angband_trader_sell, LOTRFATrades.angband_trader_buy);
-//        IntegratedRecipeHandlerFactory.registerTraderHandler (LOTRFAEntityBelegostGoldsmith.class,
-//            IntegratedRecipeHandlerFactory.FACTION_BELEGOST,
-//            LOTRFATrades.belegost_goldsmith_sell, LOTRFATrades.belegost_goldsmith_buy);
+        IntegratedRecipeHandlerFactory.registerTraderHandler (LOTRFAEntityBelegostGoldsmith.class,
+            IntegratedRecipeHandlerFactory.FACTION_BELEGOST,
+            LOTRFATrades.belegost_goldsmith_sell, LOTRFATrades.belegost_goldsmith_buy);
         IntegratedRecipeHandlerFactory.registerTraderHandler (LOTRFAEntityBorBartender.class,
             IntegratedRecipeHandlerFactory.FACTION_BOR,
             LOTRFATrades.bor_bartender_sell, LOTRFATrades.bor_bartender_buy);
