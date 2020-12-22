@@ -54,6 +54,17 @@ public class FAItemHidingHandler implements ItemHidingHandler {
 		this.hideItemAll(LOTRFABlocks.slabDoubleWood);
 		this.hideItemAll(LOTRFABlocks.slabDoubleWool);
 		this.hideItemAll(LOTRFABlocks.slabDoubleWool2);
+		this.hideItemAll(LOTRFABlocks.slabBrick1DoubleF);
+		this.hideItemAll(LOTRFABlocks.slabBrick1DoubleS);
+		this.hideItemAll(LOTRFABlocks.slabBrickCracked1DoubleF);
+		this.hideItemAll(LOTRFABlocks.slabBrickCracked1DoubleS);
+		this.hideItemAll(LOTRFABlocks.slabBrickMossy1DoubleF);
+		this.hideItemAll(LOTRFABlocks.slabBrickMossy1DoubleS);
+		this.hideItemAll(LOTRFABlocks.slabPillar1DoubleF);
+		this.hideItemAll(LOTRFABlocks.slabPillar1DoubleS);
+		this.hideItemAll(LOTRFABlocks.slabPillarCracked1DoubleF);
+		this.hideItemAll(LOTRFABlocks.slabPillarCracked1DoubleS);
+		this.hideItemAll(LOTRFABlocks.slabPillarMossy1DoubleF);
 		
 		//Beds
 		this.hideItemAll (LOTRFABlocks.doriathBed);
