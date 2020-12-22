@@ -36,6 +36,7 @@ import eoa.lotrfa.common.entity.npc.gondolin.*;
 import eoa.lotrfa.common.entity.npc.hithlum.*;
 import eoa.lotrfa.common.entity.npc.laegrim.*;
 import eoa.lotrfa.common.entity.npc.nargothrond.*;
+import eoa.lotrfa.common.entity.npc.nogrod.LOTRFAEntityNogrodStonemason;
 import eoa.lotrfa.common.entity.npc.pettydwarf.LOTRFAEntityPettyDwarfSmith;
 import eoa.lotrfa.common.entity.npc.tolingaurhoth.*;
 import eoa.lotrfa.common.entity.npc.tormentedelf.*;
@@ -63,7 +64,7 @@ public class IntegratedRecipeHandlerFactory implements RecipeHandlerFactory
     private static final String FACTION_HITHLUM = "hithlum";
     private static final String FACTION_LAEGRIM = "laegrim";
     private static final String FACTION_NARGOTHROND = "nargothrond";
-//    private static final String FACTION_NOGROD = "nogrod";
+    private static final String FACTION_NOGROD = "nogrod";
     private static final String FACTION_PETTY_DWARF = "pettyDwarf";
     private static final String FACTION_TOL_IN_GAURHOTH = "tolInGaurhoth";
     private static final String FACTION_TORMENTED_ELF = "tormentedElf";
@@ -250,9 +251,9 @@ public class IntegratedRecipeHandlerFactory implements RecipeHandlerFactory
         IntegratedRecipeHandlerFactory.registerTraderHandler (LOTRFAEntityNargothrondSmith.class,
             IntegratedRecipeHandlerFactory.FACTION_NARGOTHROND,
             LOTRFATrades.nargothrond_smith_sell, LOTRFATrades.nargothrond_smith_buy);
-//        IntegratedRecipeHandlerFactory.registerTraderHandler (LOTRFAEntityNogrodStonemason.class,
-//            IntegratedRecipeHandlerFactory.FACTION_NOGROD,
-//            LOTRFATrades.nogrod_stonemason_sell, LOTRFATrades.nogrod_stonemason_buy);
+        IntegratedRecipeHandlerFactory.registerTraderHandler (LOTRFAEntityNogrodStonemason.class,
+            IntegratedRecipeHandlerFactory.FACTION_NOGROD,
+            LOTRFATrades.nogrod_stonemason_sell, LOTRFATrades.nogrod_stonemason_buy);
         IntegratedRecipeHandlerFactory.registerTraderHandler (LOTRFAEntityPettyDwarfSmith.class,
             IntegratedRecipeHandlerFactory.FACTION_PETTY_DWARF,
             LOTRFATrades.petty_dwarf_smith_sell, LOTRFATrades.petty_dwarf_smith_buy);
