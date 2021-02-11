@@ -80,6 +80,9 @@ public class IntegratedRecipeHandlerFactory implements RecipeHandlerFactory
         IntegratedRecipeHandlerFactory.registerFACTHandler (IntegratedRecipeHandlerFactory.FACTION_ANGBAND,
             LOTRBlockTableAngband.Gui.class,
             LOTRFARecipes.angbandRecipes);
+        IntegratedRecipeHandlerFactory.registerFACTHandler (IntegratedRecipeHandlerFactory.FACTION_NOGROD,
+            LOTRBlockTableNogrod.Gui.class,
+            LOTRFARecipes.nogrodRecipes);
         IntegratedRecipeHandlerFactory.registerFACTHandler (IntegratedRecipeHandlerFactory.FACTION_BRETHIL,
             LOTRBlockTableBrethil.Gui.class,
             LOTRFARecipes.brethilRecipes);

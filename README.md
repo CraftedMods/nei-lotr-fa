@@ -2,7 +2,7 @@
 The plugin adds NEI support for all devices and recipes added by the submod.
 ## Dependencies
 If you want to setup a development environment, you'll need the following dependencies:
-- [lotrfa-2.3.0-RELEASE.jar](https://tinyurl.com/ya5f2jlg)
+- [lotrfa-2.5.3-RELEASE.jar](https://www.curseforge.com/minecraft/mc-mods/the-first-age-submod/files)
 - [neiLotr-1.0.0-BETA.jar](https://www.curseforge.com/minecraft/mc-mods/nei-lotr/files)
 - [neiRecipeHandlers-1.1.0-BETA.jar](https://www.curseforge.com/minecraft/mc-mods/nei-recipe-handlers/files)
 

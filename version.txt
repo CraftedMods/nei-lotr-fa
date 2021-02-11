@@ -1,1 +1,1 @@
-1.4.1-BETA|https://www.curseforge.com/minecraft/mc-mods/nei-lotr-fa/files/|https://raw.githubusercontent.com/CraftedMods/nei-lotr-fa/master/src/main/resources/changelog.txt
+1.5.0-BETA|https://www.curseforge.com/minecraft/mc-mods/nei-lotr-fa/files/|https://raw.githubusercontent.com/CraftedMods/nei-lotr-fa/master/src/main/resources/changelog.txt

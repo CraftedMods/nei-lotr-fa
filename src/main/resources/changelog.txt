@@ -1,6 +1,10 @@
 ===Changelog for NEI LOTR FA===
 Made by 'Crafted_Mods' or 'The_Ranger_Malvegil'
 
+ # 1.5.0-BETA:
+ + Updated to lotrda-2.5.3-BETA
+  + Added nogrid ct support
+
  # 1.4.1-BETA:
  + Updated to lotrfa-2.3.0-BETA
   + Added missing double slabs to the item hiding list
